@@ -55,11 +55,13 @@
 		5B14AAEF2A8BDBE900F03770 /* Restart */ = {
 			isa = PBXGroup;
 			children = (
-				5B14AB022A8BDDD100F03770 /* Sounds */,
-				5B14AAF02A8BDBE900F03770 /* RestartApp.swift */,
-				5B14AAF22A8BDBE900F03770 /* ContentView.swift */,
 				5B14AAF42A8BDBEB00F03770 /* Assets.xcassets */,
+				5B14AAF02A8BDBE900F03770 /* RestartApp.swift */,
 				5B14AAF62A8BDBEB00F03770 /* Preview Content */,
+				5B14AB032A8BE8A600F03770 /* Screens */,
+				5B14AB022A8BDDD100F03770 /* Sounds */,
+				5B14AB052A8BE8E300F03770 /* Utilities */,
+				5B14AB042A8BE8C600F03770 /* Views */,
 			);
 			path = Restart;
 			sourceTree = "<group>";
@@ -79,6 +81,28 @@
 				5B14AAFF2A8BDDBF00F03770 /* success.m4a */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		5B14AB032A8BE8A600F03770 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5B14AAF22A8BDBE900F03770 /* ContentView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5B14AB042A8BE8C600F03770 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B14AB052A8BE8E300F03770 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
