@@ -112,6 +112,9 @@ struct OnboardingView: View {
                                         buttonOffset = gesture.translation.width
                                     }
                                 }
+                                .onEnded { _ in
+                                    buttonOffset = 0
+                                }
                         ) // Gesture - End
                         
                         Spacer()
