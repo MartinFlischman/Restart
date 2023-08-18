@@ -15,6 +15,7 @@ struct OnboardingView: View {
     
     @State private var buttonWidth: Double = UIScreen.main.bounds.width - 80
     @State private var buttonOffset: CGFloat = 0
+    @State private var isAnimating: Bool = false
     
     // Mark: Body
     
@@ -44,6 +45,9 @@ struct OnboardingView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 10)
                 } // Header - End
+                .opacity(isAnimating ? 1 : 0)
+                .offset(y: isAnimating ? 0 : -40)
+                .animation(.easeOut(duration: 1), value: isAnimating)
                 
                 // Mark: Center
                 ZStack {
@@ -83,7 +87,7 @@ struct OnboardingView: View {
                     HStack {
                         Capsule()
                             .fill(Color("ColorRed"))
-                            .frame(width: buttonOffset + 80)
+                            .frame(width: buttonOffset + 80  )
                         
                         Spacer()
                     }
@@ -130,6 +134,9 @@ struct OnboardingView: View {
                 .padding()
             } // VStack - End
         } // ZStack - End
+        .onAppear(perform: {
+            isAnimating = true
+        })
     }
 }
 
