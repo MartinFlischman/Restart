@@ -17,12 +17,16 @@ struct HomeView: View {
             // MARK: - Header
             Spacer()
             
-            Image("character-2")
-                .resizable()
-                .scaledToFit()
-                .padding()
+            ZStack {
+                CircleGroupView(ShapeColor: .gray, ShapeOpacity: 0.1)
+                
+                Image("character-2")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+            }
             
-            // MARK: - Center
+            // MARK: - Body
             Text("The time that leads to mastery is dependant on the intensity of our focus.")
                 .font(.title3)
                 .fontWeight(.light)
@@ -46,6 +50,7 @@ struct HomeView: View {
             .buttonStyle(.borderedProminent)
             .buttonBorderShape(.capsule)
             .controlSize(.large)
+            .padding(.bottom, 20)
         }
     }
 }
