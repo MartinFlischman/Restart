@@ -14,13 +14,13 @@
             filePath = "Restart/Screens/OnboardingView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
                <Location
-                  uuid = "FD082755-BE7A-404B-95C6-A8BE415E7F7C - 69c02618229ab3f3"
+                  uuid = "FD082755-BE7A-404B-95C6-A8BE415E7F7C - 69c02618229ab3d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,11 +30,11 @@
                   urlString = "file:///Users/martin/Library/Mobile%20Documents/com~apple~CloudDocs/Dev/GitHub/Restart/Restart/Screens/OnboardingView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24">
+                  startingLineNumber = "25"
+                  endingLineNumber = "25">
                </Location>
                <Location
-                  uuid = "FD082755-BE7A-404B-95C6-A8BE415E7F7C - 2ff7c30bec1259c0"
+                  uuid = "FD082755-BE7A-404B-95C6-A8BE415E7F7C - 2ff7c30bec1259e7"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -44,8 +44,8 @@
                   urlString = "file:///Users/martin/Library/Mobile%20Documents/com~apple~CloudDocs/Dev/GitHub/Restart/Restart/Screens/OnboardingView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26">
+                  startingLineNumber = "27"
+                  endingLineNumber = "27">
                </Location>
             </Locations>
          </BreakpointContent>

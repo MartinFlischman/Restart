@@ -14,6 +14,7 @@ struct OnboardingView: View {
     @State private var buttonWidth: Double = UIScreen.main.bounds.width - 80
     @State private var buttonOffset: CGFloat = 0
     @State private var isAnimated: Bool = false
+    @State private var imageOffset: CGSize = .zero
     
     // MARK: - Body
     var body: some View {
@@ -47,12 +48,29 @@ struct OnboardingView: View {
                 // MARK: - Body
                 ZStack {
                     CircleGroupView(ShapeColor: .white, ShapeOpacity: 0.2)
+                        .offset(x: imageOffset.width * -1)
+                        .blur(radius: abs(imageOffset.width / 5))
+                        .animation(.easeOut(duration: 1), value: imageOffset)
                     
                     Image("character-1")
                         .resizable()
                         .scaledToFit()
                         .opacity(isAnimated ? 1 : 0)
                         .animation(.easeOut(duration: 0.5), value: isAnimated)
+                        .offset(x: imageOffset.width * 1.2, y: 0)
+                        .rotationEffect(.degrees(Double(imageOffset.width / 20)))
+                        .gesture(
+                            DragGesture()
+                                .onChanged { gesture in
+                                    if abs(imageOffset.width) <= 150 {
+                                        imageOffset = gesture.translation
+                                    }
+                                }
+                                .onEnded { _ in
+                                    imageOffset = .zero
+                                }
+                        )
+                        .animation(.easeOut(duration: 1), value: imageOffset)
                 }
                 
                 Spacer()
