@@ -1,10 +1,3 @@
-//
-//  OnboardingView.swift
-//  Restart
-//
-//  Created by Martin on 2024/09/30.
-//
-
 import SwiftUI
 
 struct OnboardingView: View {
@@ -15,6 +8,7 @@ struct OnboardingView: View {
     @State private var buttonOffset: CGFloat = 0
     @State private var isAnimated: Bool = false
     @State private var imageOffset: CGSize = .zero
+    @State private var indicatorOpacity: Double = 1.0
     
     // MARK: - Body
     var body: some View {
@@ -64,14 +58,27 @@ struct OnboardingView: View {
                                 .onChanged { gesture in
                                     if abs(imageOffset.width) <= 150 {
                                         imageOffset = gesture.translation
+                                        indicatorOpacity = 0
                                     }
                                 }
                                 .onEnded { _ in
                                     imageOffset = .zero
+                                    indicatorOpacity = 1
                                 }
                         )
                         .animation(.easeOut(duration: 1), value: imageOffset)
+                        .animation(.linear(duration: 0.25), value: indicatorOpacity)
                 }
+                .overlay(
+                    Image(systemName: "arrow.left.and.right.circle")
+                        .font(.system(size: 44, weight: .ultraLight))
+                        .foregroundColor(.white)
+                        .offset(y: 20)
+                        .opacity(isAnimated ? 1 : 0)
+                        .animation(.easeOut(duration: 1).delay(2), value: isAnimated)
+                        .opacity(indicatorOpacity)
+                    , alignment: .bottom
+                )
                 
                 Spacer()
                 
@@ -86,7 +93,6 @@ struct OnboardingView: View {
                     Capsule()
                         .fill(Color.white.opacity(0.2))
                         .padding(8)
-                    
                     
                     // 2. Call-to-Action (Static)
                     Text("Get Started")
@@ -104,7 +110,7 @@ struct OnboardingView: View {
                         Spacer()
                     }
                     
-                    // 4. Circle (Draggable
+                    // 4. Circle (Draggable)
                     HStack {
                         ZStack {
                             Capsule()
@@ -128,16 +134,15 @@ struct OnboardingView: View {
                                     }
                                 }
                                 .onEnded { _ in
-                                    withAnimation(Animation.easeOut(duration: 0.4)) {
-                                        if buttonOffset > buttonWidth / 2 {
-                                            buttonOffset = buttonWidth - 80
-                                            isOnboardingViewActive = false
-                                        } else {
-                                            buttonOffset = 0
-                                        }
+                                    if buttonOffset > buttonWidth / 2 {
+                                        buttonOffset = buttonWidth - 80
+                                        isOnboardingViewActive = false
+                                    } else {
+                                        buttonOffset = 0
                                     }
                                 }
                         )
+                        .animation(.easeOut(duration: 0.4), value: buttonOffset)
                         
                         Spacer()
                     }
