@@ -1,3 +1,10 @@
+//
+//  OnboardingView.swift
+//  Restart
+//
+//  Created by Martin on 2024/09/30.
+//
+
 import SwiftUI
 
 struct OnboardingView: View {
@@ -9,6 +16,7 @@ struct OnboardingView: View {
     @State private var isAnimated: Bool = false
     @State private var imageOffset: CGSize = .zero
     @State private var indicatorOpacity: Double = 1.0
+    @State private var textTitle: String = "Share."
     
     // MARK: - Body
     var body: some View {
@@ -21,10 +29,12 @@ struct OnboardingView: View {
                 Spacer()
                 
                 VStack(spacing: 0) {
-                    Text("Share.")
+                    Text(textTitle)
                         .font(.system(size: 60))
                         .fontWeight(.heavy)
                         .foregroundColor(.white)
+                        .transition(.opacity)
+                        .id(textTitle)
                     
                     Text("""
                     It's not how much we give, but how much love we put into giving.
@@ -59,11 +69,13 @@ struct OnboardingView: View {
                                     if abs(imageOffset.width) <= 150 {
                                         imageOffset = gesture.translation
                                         indicatorOpacity = 0
+                                        textTitle = "Give."
                                     }
                                 }
                                 .onEnded { _ in
                                     imageOffset = .zero
                                     indicatorOpacity = 1
+                                    textTitle = "Share."
                                 }
                         )
                         .animation(.easeOut(duration: 1), value: imageOffset)
